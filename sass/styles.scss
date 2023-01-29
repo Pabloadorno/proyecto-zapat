@@ -1,0 +1,346 @@
+
+/* llamado al scss auxiliar títulos */ 
+
+@import "titulos";
+
+/* estilos generales*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(238, 234, 227); 
+    width: 100%;
+    height: 100vh;
+    display: grid;  
+    grid-template-areas: 
+    "header"
+    "contenedor-principal"
+    "footer";
+}
+
+/* Declaración de areas */
+
+header{
+    grid-area: header;
+}
+
+.contenedor-principal {
+    grid-area: contenedor-principal;
+    margin-top: 30px;
+}
+
+.img-cat{
+    grid-area: img1;
+}
+
+.img-prod{
+    grid-area: img2;
+}
+
+footer{
+    grid-area: footer;
+    margin: 5%;    
+    border-radius: 2%; 
+}
+
+.categorias{
+    height: 100%;
+    margin: 5px;
+    padding: 5px;
+    justify-items:center;
+    display: grid;
+    gap: 30px;
+}
+
+
+.final{
+    margin: 5px;
+    
+    text-align: center;
+}
+
+.redes{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+
+.icono{
+    margin: 32px;
+    width: 40%;
+    transition: height 2s; width: 1s;    
+}
+
+.icono:hover{
+    height: 50%; width: 50%;
+}
+
+
+/*aplico estilo a los html*/
+
+/*estilo para index.html*/
+
+.navbar {
+    padding: 25px 0 25px 0;
+}
+
+.navbar-collapse {
+    text-align: center;
+}
+
+.navbar-expand-lg .navbar-nav {
+  width: 80%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.cuotas{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/*estilo para nosotros.html*/
+
+.nosotros {
+    display: grid;
+}
+
+.cuerpo-nosotros {
+    grid-area: cuerpo-nosotros;
+}
+
+
+.cuerpo-nosotros, .texto-nos{  
+    margin: 15px;
+    padding: 5px;
+    text-align: justify;
+    line-height: 30px;
+}
+
+.imagen-nos{
+    display: block;
+    margin: auto;
+    max-width: 70%;    
+}
+
+.mapa{
+    margin: 18px;
+}
+
+.mapa h4 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/*estilo para productos.html*/
+
+.imagenes-prod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.imagenes-prod img {
+    width: 50%;
+}
+
+
+.productos{
+   width: 80%;
+   margin: 0 auto;
+}
+
+.btn-group, .btn-group-vertical {
+    display: flex;
+    margin: 30px 0 30px;
+}
+
+.recien{
+    margin:20px 0 0 0;
+}
+
+/*estilo para politicas.html*/
+
+.politicas{
+    padding: 15px; 
+    width: 90%;
+    margin: 30px auto 0;
+}
+
+p{
+    margin: 2px;
+    text-align: justify;
+    font-weight: normal;
+}
+
+/*estilo para contactanos.html*/
+
+.contactanos{    
+    margin: 5px;
+    padding: 10px;   
+}
+
+.contacto{
+    width: 90%;
+    margin: 0 auto;
+    padding: 7px;
+    text-align: left;
+}
+
+/* mixin */
+@mixin titulos($tamano) {
+    .titulo-prod {
+        h1{
+            font-size: $tamano;
+            font-weight: bold;
+        }
+        h2{
+            font-size: $tamano - 0.5;
+        }
+    }
+}
+
+.productos{
+    @include titulos(2em)
+}
+
+
+/*-----------media query tablet-----------*/
+
+@media (min-width:768px){
+
+    /*estilo para index.html*/
+
+    .contenedor-principal p{
+        margin-bottom: 20px;
+    }
+
+    /*estilo para productos.html*/
+
+    .btn-group, .btn-group-vertical{
+        display: inline-flex;
+    }
+
+    .imagenes-prod img {
+        width: 40%;
+    }
+
+    /*estilo para politicas.html*/
+
+    .politicas{ 
+        width: 80%;
+    }
+    /* mixin de mq */
+    @mixin titulos($tamano) {
+        .titulo-prod {
+            h1{
+                font-size: $tamano - 0.5;
+            }
+            h2{
+                font-size: $tamano - 0.7;
+            }
+        }
+    }
+    
+.productos{
+    @include titulos(2em)
+}
+
+}
+
+/*-----------media query desktop-----------*/
+
+@media (min-width:1024px){
+
+    /*estilo para index.html*/
+
+    .logo-tienda{
+        margin-left: 145px;
+    }
+
+    .categorias {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /*estilo para nosotros.html*/
+
+    .nosotros {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .imagen-nos {
+        margin-top: 40px;
+    }
+
+
+/*estilo para productos.html*/
+
+
+.imagenes-prod {
+    column-gap: 85px;
+
+}
+    
+    .imagenes-prod img {
+        width: 20%;
+    }
+
+@mixin titulos($tamano) {
+        .titulo-prod {
+            h1{
+                font-size: $tamano - 0.2;
+            }
+            h2{
+                font-size: $tamano - 0.5;
+            }
+        }
+    }
+    
+.productos{
+    @include titulos(3em)
+}
+    
+     /*estilo para contacto.html*/
+
+    .contacto {
+     width: 50%;
+     margin: 40px auto 0;
+    }
+}
+
+
+
+/*definición de áreas*/
+
+
+/*.img-index{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap:5px;    
+}*/
+
+/*@media (min-width:480px){
+    .envoltura{
+        width: 90%;
+        height: 90%;
+        grid-template-areas:
+        "nav"     "nav"
+        "cuerpo"  "cuerpo"
+        "img1"    "img2"
+        "footer"  "footer";
+    }
+}
+*/
+
